@@ -44,6 +44,15 @@ public class PlayerMovement extends JPanel implements ActionListener, KeyListene
 			}
 		}
 		for (int i = 0; i < Obstacle.boundingRect.size(); i++) {
+			if (Obstacle.boundingRect.get(i).equals(game.o2.rect)
+					&& (game.level5Flag || game.level6Flag || game.level7Flag))
+				continue;
+			if (Obstacle.boundingRect.get(i).equals(game.o3.rect)
+					&& (game.level6Flag || game.level7Flag))
+				continue;
+			if (Obstacle.boundingRect.get(i).equals(game.o1.rect)
+					&& (game.level7Flag))
+				continue;
 			if (game.p.rect.intersects(Obstacle.boundingRect.get(i))) {
 				game.deaths++;
 				game.reset();
